@@ -8,16 +8,16 @@ command = HandleInput.new(Robot.new, Table.new, Action.new)
 $stdout.print "Options: PLACE X,Y,F; MOVE; LEFT; RIGHT; REPORT; EXIT\n"
 
 # Reading user input
-while "infinite"
+while true
   input = gets.chomp
 
   next if input.empty?
 
-  unless 'EXIT'.match?(input)
+  unless input == 'EXIT'
     command.interpret(input)
     next
   end
 
-  $stdout.print "Goodbye! \n"
+  $stdout.print "Goodbye!\n"
   break
 end
